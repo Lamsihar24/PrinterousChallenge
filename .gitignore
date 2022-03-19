@@ -1,0 +1,7 @@
+.env
+reports
+node_modules
+logs
+.DS_Store
+.vscode
+yarn.lock
