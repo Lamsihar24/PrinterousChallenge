@@ -13,7 +13,7 @@
 
 `Change your Browser from .env to chromedriver or geckodriver`
 
-`npm run cartChrome or npm run cartFirefox`
+`npm run test`
 
 Useful Links :
 https://webdriver.io/
