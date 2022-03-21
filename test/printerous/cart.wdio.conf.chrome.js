@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const { removeSync } = require('fs-extra');
 const path = require('path');
-//const { generate } = require('multiple-cucumber-html-reporter');
+const { generate } = require('multiple-cucumber-html-reporter');
 
 const url = process.env.BASE_URL;
 
@@ -63,7 +63,7 @@ exports.config = {
       // 5 instances get started at a time.
       maxInstances: 5,
       //
-      specs: ['./test/printerous/features/**/*.feature'],
+      specs: ['./test/printerous/features/**/cart.feature'],
       // Patterns to exclude.
       // exclude: ['./test/kompasid/features/**/login.feature'],
       browserName: 'chrome',
@@ -178,7 +178,7 @@ exports.config = {
   // Options to be passed to Mocha.
   // See the full list at http://mochajs.org/
   cucumberOpts: {
-    require: ['./test/printerous/stepdefinitions/*.js'],
+    require: ['./test/printerous/stepdefinitions/cart.steps.js'],
     backtrace: true, // <boolean> show full backtrace for errors
     compiler: ['js:babel-core/register'], // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
     dryRun: false, // <boolean> invoke formatters without executing steps
@@ -271,16 +271,16 @@ exports.config = {
   /**
    * Function to be executed after a test (in Mocha/Jasmine).
    */
-  // onComplete: () => {
-  //   // Generate the report when it all tests are done
-  //   generate({
-  //     // This part needs to be the same path where you store the JSON files
-  //     jsonDir: './reports/JSON-Reports/',
-  //     reportPath: './reports/report-html/',
-  //     openReportInBrowser: false,
-  //     disableLog: false,
-  //   });
-  // },
+  onComplete: () => {
+    // Generate the report when it all tests are done
+    generate({
+      // This part needs to be the same path where you store the JSON files
+      jsonDir: './reports/JSON-Reports/',
+      reportPath: './reports/report-html/',
+      openReportInBrowser: false,
+      disableLog: false,
+    });
+  },
   /**
    * Hook that gets executed after the suite has ended
    * @param {Object} suite suite details

@@ -1,4 +1,4 @@
-import { When, Then } from '@cucumber/cucumber';
+import { Given, When, Then } from '@cucumber/cucumber';
 import loginPrinterous from '../pageobject/login.page';
 
 Given('User on Printerous login page', async () => {
@@ -12,5 +12,5 @@ When('User login with valid data into the text box', async () => {
 });
 
 Then('User directed to Pinterous homepage', async () => {
-  await loginPrinterous.navigateToAllEpaper();
+  await loginPrinterous.validateHomepage();
 });
