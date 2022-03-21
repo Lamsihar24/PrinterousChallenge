@@ -65,7 +65,7 @@ exports.config = {
       //
       specs: ['./test/printerous/features/**/cart.feature'],
       // Patterns to exclude.
-      // exclude: ['./test/kompasid/features/**/login.feature'],
+      // exclude: ['./test/printerous/features/**/login.feature'],
       browserName: 'chrome',
       'goog:chromeOptions': {
         args: [
@@ -285,18 +285,6 @@ exports.config = {
    * Hook that gets executed after the suite has ended
    * @param {Object} suite suite details
    */
-  /* eslint-disable */
-  afterScenario: async () => {
-    await browser.setCookies([{ name: 'sdet-kompasid', value: '123' }]);
-
-    let cookies = await browser.getCookies();
-
-    await browser.deleteCookies(['sdet-kompasid']);
-    cookies = await browser.getCookies();
-
-    await browser.deleteCookies();
-    cookies = await browser.getCookies();
-  },
   /* eslint-enable */
   /**
    * Runs after a WebdriverIO command gets executed
