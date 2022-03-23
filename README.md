@@ -11,9 +11,9 @@
 
 # How To Run in Local Browser :
 
-`Change your Browser from .env to chromedriver or geckodriver`
+`Change your Browser from .env to chromedriver`
 
 `npm run test`
 
-Useful Links :
+ Links :
 https://webdriver.io/
